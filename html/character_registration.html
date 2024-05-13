@@ -3,9 +3,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script text="text/javascript" src="/js/character_registration.js">
+    </script>
 </head>
 <body>
-    <form action="">
+    <form id="character_registration">
         <label for="fclass">Class:</label><br>
         <select id="class" name="class">
             <option value="paladin">Paladin</option>
@@ -15,7 +17,7 @@
         </select><br>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value=""><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="add_character()">
     </form>
 </body>
 </html>
