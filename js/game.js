@@ -5,9 +5,12 @@ var num_fallens = 100;
 class Character{
     character_name;
     character_class;
+    experience_gained; //experience gained from killing 
+    current_experience;
     constructor(character_name, character_class){
         this.character_name = character_name;
         this.character_class = character_class;
+        this.current_experience = 0;
     }
 }
 
@@ -21,6 +24,7 @@ class Fallen{
     constructor(name, id){
         this.name = name;
         this.id = id;
+        this.exp_of_die = 1;
     }
 }
 
@@ -87,8 +91,25 @@ class Manager{
 
         localStorage.setItem('fallens', stringArray);
     }
+
+    kill_fallens(){
+        let characters = this.get_character();
+        let fallens = this.get_fallens();
+
+        let fallen = fallens.shift();
+        let character = characters.shift();
+        character.current_experience += fallen.exp_of_die; 
+    
+        characters.unshift(character);
+
+        let stringArray_characters = JSON.stringify(characters);
+        let stringArray_fallens = JSON.stringify(fallens);
+
+        localStorage.setItem('characters', stringArray_characters);
+        localStorage.setItem('fallens', stringArray_fallens);
+
+    }
     
 }
 
 const manager = new Manager();
-manager.create_fallens();
