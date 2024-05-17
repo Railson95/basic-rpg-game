@@ -8,19 +8,27 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <form id="character_registration">
-        <label for="fclass">Class:</label><br>
-        <select id="class" name="class">
-            <option value="paladin">Paladin</option>
-            <option value="amazona">Amazona</option>
-            <option value="necromancer">Necromancer</option>
-            <option value="sorceres">Sorceres</option>
-        </select><br>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" value=""><br><br>
-        <input class="button" type="submit" value="add character" onclick="manager.add_character()">
-        <input type="submit" value="kill fallens" onclick="manager.kill_fallens()">
-        <input type="submit" value="create fallens" onclick="manager.create_fallens()">
-    </form>
+
+    <div class="container">
+        <div class="box">
+            <h1>Diablo 2</h1>
+            <h6>Insira as informações desejadas</h6>
+            <form id="character_registration">
+                <label for="fclass">Class:</label><br>
+                <select id="class" name="class">
+                    <option value="paladin">Paladin</option>
+                    <option value="amazona">Amazona</option>
+                    <option value="necromancer">Necromancer</option>
+                    <option value="sorceres">Sorceres</option>
+                </select><br>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" value="" placeholder="digite o nome do personagem"><br><br>
+                <input class="button" type="submit" value="add character" onclick="manager.add_character()">
+                <input class="button" type="submit" value="kill fallens" onclick="manager.kill_fallens()">
+                <input class="button" type="submit" value="create fallens" onclick="manager.create_fallens()">
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>
