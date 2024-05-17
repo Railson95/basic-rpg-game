@@ -5,6 +5,7 @@
     <title>Document</title>
     <script text="text/javascript" src="/js/game.js">
     </script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <form id="character_registration">
@@ -17,7 +18,7 @@
         </select><br>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value=""><br><br>
-        <input type="submit" value="add character" onclick="manager.add_character()">
+        <input class="button" type="submit" value="add character" onclick="manager.add_character()">
         <input type="submit" value="kill fallens" onclick="manager.kill_fallens()">
         <input type="submit" value="create fallens" onclick="manager.create_fallens()">
     </form>
