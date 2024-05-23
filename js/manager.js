@@ -1,55 +1,10 @@
+import Fallen from './fallen.js';
+import Character from './character.js';
 let characters = [];
 let fallens = [];
 var num_fallens = 100;
-const button_add_character = document.getElementById("button_add_character");
-const button_kill_fallens = document.getElementById("button_kill_fallens");
-const button_create_fallens = document.getElementById("button_create_fallens");
 
-button_add_character.addEventListener("click", (e) => {
-    e.preventDefault();
-    const manager = new Manager();
-    manager.add_character();
-})
-
-button_kill_fallens.addEventListener("click", (e) => {
-    e.preventDefault();
-    const manager = new Manager();
-    manager.kill_fallens();
-})
-
-button_create_fallens.addEventListener("click", (e) => {
-    e.preventDefault();
-    const manager = new Manager();
-    manager.create_fallens();
-})
-
-class Character{
-    character_name;
-    character_class;
-    experience_gained; //experience gained from killing 
-    current_experience;
-    constructor(character_name, character_class){
-        this.character_name = character_name;
-        this.character_class = character_class;
-        this.current_experience = 0;
-    }
-}
-
-class Fallen{
-    id;
-    name;
-    level;
-    dmg;
-    resistence;
-    exp_of_die; // experience given when dying
-    constructor(name, id){
-        this.name = name;
-        this.id = id;
-        this.exp_of_die = 1;
-    }
-}
-
-class Manager{
+export default class Manager{
     constructor(){
     }
 
@@ -132,5 +87,3 @@ class Manager{
     }
     
 }
-
-
