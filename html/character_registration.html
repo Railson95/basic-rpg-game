@@ -3,8 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script text="text/javascript" src="/js/game.js">
-    </script>
+    
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -23,12 +22,15 @@
                 </select><br>
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" value="" placeholder="digite o nome do personagem"><br><br>
-                <input class="button" type="submit" value="add character" onclick="manager.add_character()">
-                <input class="button" type="submit" value="kill fallens" onclick="manager.kill_fallens()">
-                <input class="button" type="submit" value="create fallens" onclick="manager.create_fallens()">
+                <button id="button_add_character" class="button" value="add character">add_character</button>
+                <button id="button_kill_fallens" class="button" value="kill fallens">kill_fallens</button>
+                <button id="button_create_fallens" class="button" value="create fallens">create_fallens</button>
             </form>
         </div>
     </div>
+
+    <script text="text/javascript" src="/js/game.js">
+    </script>
     
 </body>
 </html>
