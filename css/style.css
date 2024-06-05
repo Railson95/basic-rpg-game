@@ -37,5 +37,19 @@
 .box-right {
     width: 431px;
     height: 626px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: red;
+}
+
+#hero .avatar{
+    width: 203px;
+    height: 267px;
+}
+
+#monster .avatar{
+    width: 208px;
+    height: 320px;
+    margin-bottom: 80px;
 }
