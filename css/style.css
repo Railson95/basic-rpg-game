@@ -25,22 +25,13 @@
     background: black;
 }
 
-.box-left {
+.box-left, .box-right {
     width: 431px;
     height: 626px;
-    background: blue;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.box-right {
-    width: 431px;
-    height: 626px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: red;
 }
 
 #hero .avatar{
