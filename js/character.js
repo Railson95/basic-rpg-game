@@ -6,8 +6,13 @@ export default class Character{
     getStatusHtml() {
         const {heart} = this
         const health_bar = this.getHealthBarHtml();
-        return `<img class="health-img" src="${heart}" alt="health img" />
-                ${health_bar}`
+        return `
+                <div class="health-img">
+                    <img class="heart" src="${heart}" alt="health img"> 
+                    </img>
+                </div>
+                ${health_bar}
+                `
     }
 
     getHealthBarHtml() {

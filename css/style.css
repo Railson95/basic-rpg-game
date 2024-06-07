@@ -43,12 +43,14 @@
 }
 
 .card3, .card4 {
+    display: grid;
+    grid-template-columns: auto auto;
     width: 410px;
     height: 200px;
     background-color: black;
 }
 
-.health-img {
+.health-img .heart {
     width: 25px;
     height: 25px;
 }
