@@ -42,16 +42,10 @@
     height: 320px;
 }
 
-.card3 {
+.card3, .card4 {
     width: 410px;
     height: 200px;
-    background-color: brown;
-}
-
-.card4 {
-    width: 410px;
-    height: 200px;
-    background-color: blue;
+    background-color: black;
 }
 
 .health-img {
