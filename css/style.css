@@ -18,16 +18,14 @@
 }
 
 .box {
-    display: flex;
-    flex-direction: row;
-    width: 862px;
-    height: 626px;
+    display: grid;
+    grid-template-columns: auto auto;
     background: black;
 }
 
-.box-left, .box-right {
-    width: 431px;
-    height: 626px;
+.card1, .card2 {
+    width: 410px;
+    height: 400px;
     background: black;
     display: flex;
     justify-content: center;
@@ -42,8 +40,20 @@
 #monster .avatar{
     width: 208px;
     height: 320px;
-    margin-bottom: 80px;
 }
+
+.status1 {
+    width: 410px;
+    height: 200px;
+    background-color: brown;
+}
+
+.status2 {
+    width: 410px;
+    height: 200px;
+    background-color: blue;
+}
+
 
 .healt-bar{
     display: flex;
