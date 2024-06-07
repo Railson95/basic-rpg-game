@@ -42,16 +42,21 @@
     height: 320px;
 }
 
-.status1 {
+.card3 {
     width: 410px;
     height: 200px;
     background-color: brown;
 }
 
-.status2 {
+.card4 {
     width: 410px;
     height: 200px;
     background-color: blue;
+}
+
+.health-img {
+    width: 25px;
+    height: 25px;
 }
 
 
