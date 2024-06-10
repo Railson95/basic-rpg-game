@@ -8,11 +8,10 @@ export default class Character{
         const health_bar = this.getHealthBarHtml();
 
         let response = `
-                        <div class="health-img">
-                            <img class="heart" src="${heart}" alt="health img"> 
-                            </img>
-                        </div>
+                        <img class="heart" src="${heart}" alt="health img"> 
+                        </img>
                         ${health_bar}
+                        <h4 class="number-life-mana"> 100 </h4>
                         `
 
         if(!mana){
@@ -28,8 +27,10 @@ export default class Character{
                     </img>
                 </div>
                 ${health_bar}
+                <h4 class="number-life-mana"> 100 </h4>
                 <img class="mana" src="${mana}" alt="mana img">
                 ${mana_bar}
+                <h4 class="number-life-mana"> 100 </h4>
                 `
     }
 
