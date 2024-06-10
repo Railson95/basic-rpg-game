@@ -56,48 +56,30 @@
 
 }
 
-.heart {
+.heart, .mana {
     width: 25px;
     height: 25px;
 }
 
-.mana {
-    width: 25px;
-    height: 25px;
-}
-
-.health-bar-outer {
+.health-bar-outer, .mana-bar-outer {
     background: #171217;
     height: 1vh; 
     width:300px;
     border-radius: 2px;
 }
 
-.health-bar-outer .health-bar-inner {
+.health-bar-outer .health-bar-inner, .mana-bar-outer .mana-bar-inner {
     background: red;
     height: 100%;
     border-radius: 2px;
 }
 
-.health-bar-outer .health-bar-inner.danger {
-    background:#d1435f;
-}
-
-.mana-bar-outer {
-    background: #171217;
-    height: 1vh; 
-    width:300px;
-    border-radius: 2px;
+.health-bar-outer .health-bar-inner.danger, .mana-bar-outer .mana-bar-inner.danger {
+    background: yellow;
 }
 
 .mana-bar-outer .mana-bar-inner {
     background: blue;
-    height: 100%;
-    border-radius: 2px;
-}
-
-.mana-bar-outer .mana-bar-inner.danger {
-    background:#d1435f;
 }
 
 .number-life-mana {
