@@ -14,31 +14,23 @@ export default class Character{
 
         const {img_heart, img_mana} = this
         const health_bar = life.getBarHtml("health");
+        const mana_bar = mana.getBarHtml("mana");
+        let mana_status = `<img class="mana" src="${img_mana}" alt="mana img">
+                            ${mana_bar}        
+                            <h4 class="number-life-mana"> 100 </h4>`
 
-        let response = `
-                        <img class="heart" src="${img_heart}" alt="health img"> 
+        let life_status = `<img class="heart" src="${img_heart}" alt="health img"> 
                         </img>
                         ${health_bar}
                         <h4 class="number-life-mana"> 100 </h4>
                         `
 
         if(!img_mana){
-            return response
+            return life_status
         }
 
-        const mana_bar = mana.getBarHtml("mana");
+        return life_status + mana_status
 
-        return `
-                <div class="health-img">
-                    <img class="heart" src="${img_heart}" alt="health img"> 
-                    </img>
-                </div>
-                ${health_bar}
-                <h4 class="number-life-mana"> 100 </h4>
-                <img class="mana" src="${img_mana}" alt="mana img">
-                ${mana_bar}
-                <h4 class="number-life-mana"> 100 </h4>
-                `
     }
 
     getCharacterHtml() {
