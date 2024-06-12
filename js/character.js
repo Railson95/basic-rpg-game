@@ -5,7 +5,7 @@ export default class Character{
 
     getStatusHtml() {
         const {heart, mana} = this
-        const health_bar = this.getHealthBarHtml();
+        const health_bar = this.getBarHtml("health");
 
         let response = `
                         <img class="heart" src="${heart}" alt="health img"> 
@@ -18,7 +18,7 @@ export default class Character{
             return response
         }
 
-        const mana_bar = this.getManaBarHtml();
+        const mana_bar = this.getBarHtml("mana");
 
 
         return `
@@ -34,21 +34,11 @@ export default class Character{
                 `
     }
 
-    getHealthBarHtml() {
+    getBarHtml(type) {
         // const percent = getPercentage(this.health, this.maxHealth);
         const percent = 40;
-        return `<div class="health-bar-outer">
-                    <div class="health-bar-inner ${percent < 26 ? "danger" : ""}" 
-                            style="width:${percent}%;">
-                    </div>
-                </div>`
-    }
-
-    getManaBarHtml() {
-        // const percent = getPercentage(this.health, this.maxHealth);
-        const percent = 40;
-        return `<div class="mana-bar-outer">
-                    <div class="mana-bar-inner ${percent < 26 ? "danger" : ""}" 
+        return `<div class="${type}-bar-outer">
+                    <div class="${type}-bar-inner ${percent < 26 ? "danger" : ""}" 
                             style="width:${percent}%;">
                     </div>
                 </div>`
