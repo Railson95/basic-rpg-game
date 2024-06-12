@@ -25,5 +25,15 @@ export default class Point {
             this.point = this.max;
             return;
         }
-    }  
+    }
+    
+    getBarHtml(type) {
+        // const percent = getPercentage(this.health, this.maxHealth);
+        const percent = 40;
+        return `<div class="${type}-bar-outer">
+                    <div class="${type}-bar-inner ${percent < 26 ? "danger" : ""}" 
+                            style="width:${percent}%;">
+                    </div>
+                </div>`
+    }
 }
