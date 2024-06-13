@@ -85,3 +85,12 @@
 .number-life-mana {
     color: white;
 }
+
+#btn-atk {
+    width: 100px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    margin-left: 150px;
+    border-radius: 50px;
+}
