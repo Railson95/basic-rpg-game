@@ -1,50 +1,96 @@
 
-.button{
-    margin-left: 10%;
-    background-color:blue;
-    color: white;
-    border-radius: 20px;
-    width: 95px;
-    height: 50px;
-}
-
-body {
-    background-image: url("/img/diablo2.jpg");
-    background-color: black;
-    background-repeat: no-repeat, repeat;
-}
-.container {
-    width: 100vw;
-    height: 100vh;
+.body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
+
+.container {
+    background-color: rgba(85, 126, 139, 1);
+    width: 955px;
+    height: 736px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 144px 243px 144px 242px;
+}
+
 .box {
-    width: 500px;
-    height: 380px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+    display: grid;
+    grid-template-columns: auto auto;
+    background: black;
 }
 
-#name, #class{
-    width: 100%;
+.card1, .card2 {
+    width: 410px;
+    height: 400px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero .avatar{
+    width: 203px;
+    height: 267px;
+}
+
+#monster .avatar{
+    width: 208px;
+    height: 320px;
+}
+
+.card3, .card4 {
+    width: 410px;
+    height: 200px;
+    background-color: black;
+}
+
+#monster-status, #hero-status {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.heart, .mana {
+    width: 25px;
+    height: 25px;
+}
+
+.health-bar-outer, .mana-bar-outer {
+    background: #171217;
+    height: 1vh; 
+    width:300px;
+    border-radius: 2px;
+}
+
+.health-bar-outer .health-bar-inner, .mana-bar-outer .mana-bar-inner {
+    background: red;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.health-bar-outer .health-bar-inner.danger, .mana-bar-outer .mana-bar-inner.danger {
+    background: yellow;
+}
+
+.mana-bar-outer .mana-bar-inner {
+    background: blue;
+}
+
+.number-life-mana {
+    color: white;
+}
+
+#btn-atk {
+    width: 100px;
     height: 40px;
-    background: white;
-    border-radius: 4px;
-    border: 1px solid silver;
-    margin: 10px 0 18px 0;
-    padding: 0 10px;
+    background-color: green;
+    color: white;
+    margin-left: 150px;
+    border-radius: 50px;
 }
-
-h1{
-    color: blue;
-    text-align: center;
-}
-
-h6{
-    text-align: center;
-}
-
