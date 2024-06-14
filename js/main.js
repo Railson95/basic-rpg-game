@@ -1,4 +1,4 @@
-import Character from "./character.js"
+import Character from "./characters/character.js"
 import characterData from "./data.js"
 import Life from "./point/life.js";
 import Mana from "./point/mana.js";
