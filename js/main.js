@@ -1,5 +1,7 @@
 import Character from "./character.js"
 import characterData from "./data.js"
+import Life from "./point/life.js";
+import Mana from "./point/mana.js";
 
 function render() {
     document.getElementById('hero').innerHTML = paladin.getCharacterHtml();
@@ -8,6 +10,24 @@ function render() {
     document.getElementById('monster-status').innerHTML = orc.getStatusHtml();
 }
 
-const paladin = new Character(characterData.hero);
-const orc = new Character(characterData.monster);
-render();
+function run() {
+    render(paladin, orc);
+    btnAtk.addEventListener("click", (e) => {
+        e.preventDefault()
+        orc.takeDmg(paladin.getAtk());
+        render(paladin, orc);
+    })
+}
+
+const lifeHero = new Life();
+const manaHero = new Mana();
+
+const lifeMoster = new Life();
+const manaMonster = new Mana();
+
+const paladin = new Character(characterData.hero, lifeHero, manaHero);
+const orc = new Character(characterData.monster, lifeMoster, manaMonster);
+
+const btnAtk = document.getElementById("btn-atk");
+run();
+

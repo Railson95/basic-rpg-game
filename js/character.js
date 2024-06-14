@@ -1,20 +1,29 @@
-import Life from "./point/life.js";
-import Mana from "./point/mana.js";
-
 export default class Character{
 
-    constructor(data) {
+    level;
+    atk_dmg; 
+    life;
+    mana;
+
+    constructor(data, life, mana) {
         Object.assign(this, data)
+        this.atk_dmg = 50;
+        this.life = life;
+        this.mana = mana;
+    }
+
+    getAtk(){
+        return this.atk_dmg;
+    }
+
+    takeDmg(dmg){
+        this.life.removeLife(dmg);
     }
 
     getStatusHtml() {
-
-        const life = new Life();
-        const mana = new Mana();
-
         const {img_heart, img_mana} = this
-        const health_bar = life.getBarHtml("health");
-        const mana_bar = mana.getBarHtml("mana");
+        const health_bar = this.life.getBarHtml("health");
+        const mana_bar = this.mana.getBarHtml("mana");
         let mana_status = `<img class="mana" src="${img_mana}" alt="mana img">
                             ${mana_bar}        
                             <h4 class="number-life-mana"> 100 </h4>`

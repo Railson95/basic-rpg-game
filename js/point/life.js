@@ -6,4 +6,8 @@ export default class Life extends Point{
     constructor(){
         super(MAX_LIFE);
     }
+
+    removeLife(atk_dmg){
+        this.point -= atk_dmg;
+    }
 }
