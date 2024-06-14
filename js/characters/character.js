@@ -20,26 +20,24 @@ export default class Character{
         this.life.removeLife(dmg);
     }
 
-    getStatusHtml() {
-        const {img_heart, img_mana} = this
+    getLifeStatus(){
+        const {img_heart} = this
         const health_bar = this.life.getBarHtml("health");
-        const mana_bar = this.mana.getBarHtml("mana");
-        let mana_status = `<img class="mana" src="${img_mana}" alt="mana img">
-                            ${mana_bar}        
-                            <h4 class="number-life-mana"> 100 </h4>`
-
         let life_status = `<img class="heart" src="${img_heart}" alt="health img"> 
                         </img>
                         ${health_bar}
                         <h4 class="number-life-mana"> 100 </h4>
                         `
+        return life_status
+    }
 
-        if(!img_mana){
-            return life_status
-        }
-
-        return life_status + mana_status
-
+    getManaStatus(){
+        const {img_mana} = this
+        const mana_bar = this.mana.getBarHtml("mana");
+        let mana_status = `<img class="mana" src="${img_mana}" alt="mana img">
+                            ${mana_bar}        
+                            <h4 class="number-life-mana"> 100 </h4>`
+        return mana_status
     }
 
     getCharacterHtml() {

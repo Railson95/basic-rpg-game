@@ -1,5 +1,6 @@
-import Character from "./characters/character.js"
 import characterData from "./data.js"
+import Paladin from "./characters/paladin.js";
+import Orc from "./characters/orc.js";
 import Life from "./point/life.js";
 import Mana from "./point/mana.js";
 
@@ -25,8 +26,8 @@ const manaHero = new Mana();
 const lifeMoster = new Life();
 const manaMonster = new Mana();
 
-const paladin = new Character(characterData.hero, lifeHero, manaHero);
-const orc = new Character(characterData.monster, lifeMoster, manaMonster);
+const paladin = new Paladin(characterData.hero, lifeHero, manaHero);
+const orc = new Orc(characterData.monster, lifeMoster, manaMonster);
 
 const btnAtk = document.getElementById("btn-atk");
 run();
