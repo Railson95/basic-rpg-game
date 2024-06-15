@@ -4,20 +4,13 @@ export default class Character{
     atk_dmg; 
     life;
     mana;
+    experience;
+    defense;
 
     constructor(data, life, mana) {
         Object.assign(this, data)
-        this.atk_dmg = 50;
         this.life = life;
         this.mana = mana;
-    }
-
-    getAtk(){
-        return this.atk_dmg;
-    }
-
-    takeDmg(dmg){
-        this.life.removeLife(dmg);
     }
 
     getLifeStatus(){

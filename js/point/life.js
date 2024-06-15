@@ -8,6 +8,10 @@ export default class Life extends Point{
     }
 
     removeLife(atk_dmg){
+
+        if(this.point <= 0){
+            throw "The character died {" + this.constructor.name + "}";
+        }
         this.point -= atk_dmg;
     }
 }
