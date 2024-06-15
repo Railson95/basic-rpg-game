@@ -16,8 +16,11 @@ function run() {
     btnAtk.addEventListener("click", (e) => {
         e.preventDefault()
         orc.takeDmg(paladin.getAtk());
-        render(paladin, orc);
         paladin.takeDmg(orc.getAtk());
+        if(orc.isDead() || paladin.isDead()) {
+            render(paladin, orc);
+            return;
+        }
         render(paladin, orc);
     })
 }

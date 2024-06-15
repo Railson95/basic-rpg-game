@@ -13,6 +13,10 @@ export default class Character{
         this.mana = mana;
     }
 
+    isDead(){
+        return this.life.point <= 0 ? true:false;
+    }
+
     getLifeStatus(){
         const {img_heart} = this
         const health_bar = this.life.getBarHtml("health");

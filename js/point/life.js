@@ -14,9 +14,17 @@ export default class Life extends Point{
         }
 
         if(this.point <= 0){
-            throw "The character died {" + this.constructor.name + "}";
+            console.log("The character died {" + this.constructor.name + "}");
+            return;
         }
+
         atk_dmg = atk_dmg - defense;
+
+        if(atk_dmg >= this.point){
+            this.point = 0;
+            return;
+        }
+
         this.point -= atk_dmg;
     }
 }
