@@ -12,12 +12,17 @@ function render() {
 }
 
 function run() {
+    var endGame = false;
     render(paladin, orc);
     btnAtk.addEventListener("click", (e) => {
+        if(endGame){
+            return;
+        }
         e.preventDefault()
         orc.takeDmg(paladin.getAtk());
         paladin.takeDmg(orc.getAtk());
         if(orc.isDead() || paladin.isDead()) {
+            endGame = true;
             render(paladin, orc);
             return;
         }
