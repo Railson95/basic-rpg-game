@@ -8,7 +8,7 @@ export default class Paladin extends Character{
 
     constructor(data, life, mana) {
         super(data, life, mana);
-        this.atk_dmg = 10;
+        this.atk_dmg = 45;
         this.defense = 5;
     }
 

@@ -17,6 +17,8 @@ function run() {
         e.preventDefault()
         orc.takeDmg(paladin.getAtk());
         render(paladin, orc);
+        paladin.takeDmg(orc.getAtk());
+        render(paladin, orc);
     })
 }
 
