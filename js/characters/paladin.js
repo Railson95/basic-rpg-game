@@ -9,6 +9,7 @@ export default class Paladin extends Character{
     constructor(data, life, mana) {
         super(data, life, mana);
         this.atk_dmg = 10;
+        this.defense = 5;
     }
 
     getStatusHtml() {
@@ -25,7 +26,7 @@ export default class Paladin extends Character{
     }
 
     takeDmg(dmg){
-        this.life.removeLife(dmg);
+        this.life.removeLife(dmg, this.defense);
     }
 
 }

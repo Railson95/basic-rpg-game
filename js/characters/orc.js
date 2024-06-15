@@ -5,6 +5,7 @@ export default class Orc extends Character{
     constructor(data, life, mana) {
         super(data, life, mana);
         this.atk_dmg = 20;
+        this.defense = 5;
     }
 
     getStatusHtml() {
@@ -21,7 +22,7 @@ export default class Orc extends Character{
     }
 
     takeDmg(dmg){
-        this.life.removeLife(dmg);
+        this.life.removeLife(dmg, this.defense);
     }
 
 }
