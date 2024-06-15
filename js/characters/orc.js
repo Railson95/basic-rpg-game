@@ -10,6 +10,13 @@ export default class Orc extends Character{
         this.experience = 50;
     }
 
+    getDefense(){
+        if(!(this.level && this.defense)){
+            throw "The level and defense are wrong {" + this.constructor.name + "}";
+        }
+        return this.level*this.defense;
+    }
+
     getExperience(){
         if(!(this.level && this.experience)){
             throw "The level and experience are wrong {" + this.constructor.name + "}";
@@ -31,7 +38,7 @@ export default class Orc extends Character{
     }
 
     takeDmg(dmg){
-        this.life.removeLife(dmg, this.defense);
+        this.life.removeLife(dmg, this.getDefense());
     }
 
 }
