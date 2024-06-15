@@ -6,6 +6,15 @@ export default class Orc extends Character{
         super(data, life, mana);
         this.atk_dmg = 20;
         this.defense = 5;
+        this.level = 1;
+        this.experience = 50;
+    }
+
+    getExperience(){
+        if(!(this.level && this.experience)){
+            throw "The level and experience are wrong {" + this.constructor.name + "}";
+        }
+        return this.level*this.experience;
     }
 
     getStatusHtml() {
