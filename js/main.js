@@ -21,8 +21,19 @@ function run() {
         e.preventDefault()
         orc.takeDmg(paladin.getAtk());
         paladin.takeDmg(orc.getAtk());
-        if(orc.isDead() || paladin.isDead()) {
-            endGame = true;
+
+
+        // Só para teste do aumento de lvl
+        paladin.levelIncrease();
+        if(orc.isDead()){
+            orc.life.point = 100;
+            paladin.setExperience(orc.getExperience());
+            render(paladin, orc);
+            return;
+        }
+
+        if(paladin.isDead()){
+            paladin.life.point = 100;
             render(paladin, orc);
             return;
         }
