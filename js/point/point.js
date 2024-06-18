@@ -23,23 +23,6 @@ export default class Point {
         this.max = newMax;
     }
 
-    update(level) {
-
-        if (level < this.min){
-            console.error("The level cannot be negative");    
-            return;
-        }
-
-        this.point *= level;
-
-        console.log("Points: " + this.point);
-        if(this.point >= this.max) {
-            console.error("Your points " + this.constructor.name + " cannot be greater than the max " + this.max);
-            this.point = this.max;
-            return;
-        }
-    }
-
     getPercentage(maxPoint, removePoint){
         return Math.abs(((removePoint * maxPoint)/maxPoint) - maxPoint);
     }
