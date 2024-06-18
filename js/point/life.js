@@ -18,6 +18,11 @@ export default class Life extends Point{
             return;
         }
 
+        if(defense >= atk_dmg){
+            console.log("Very low damage for this defense {" + this.constructor.name + "}");
+            return;
+        }
+
         atk_dmg = atk_dmg - defense;
 
         if(atk_dmg >= this.point){
@@ -26,5 +31,6 @@ export default class Life extends Point{
         }
 
         this.point -= atk_dmg;
+
     }
 }

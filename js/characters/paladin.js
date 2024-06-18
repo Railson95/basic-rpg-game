@@ -1,5 +1,6 @@
 import Character from "./character.js";
 var MAX_LEVEL = 10;
+var ATTRIBUTE_INCREASE = 10;
 export default class Paladin extends Character{
 
     strength;
@@ -9,6 +10,9 @@ export default class Paladin extends Character{
 
     constructor(data, life, mana) {
         super(data, life, mana);
+        this.strength = 30;
+        this.dexterity = 20;
+        this.energy = 10;
         this.atk_dmg = 45;
         this.defense = 5;
         this.experience = 0;
@@ -24,9 +28,18 @@ export default class Paladin extends Character{
         }
 
         if(this.experience >= this.nextLevel){
+            this.attributeIncrease();
             this.level++;
             this.nextLevel *= 2;
         }
+    }
+
+    attributeIncrease() {
+        this.strength += ATTRIBUTE_INCREASE;
+        this.dexterity += ATTRIBUTE_INCREASE;
+        this.energy += ATTRIBUTE_INCREASE;
+        this.atk_dmg += this.strength * 0.5; 
+        this.defense += this.dexterity * 0.5;
     }
 
     setExperience(experience) {
