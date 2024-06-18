@@ -23,7 +23,7 @@ export default class Character{
         let life_status = `<img class="heart" src="${img_heart}" alt="health img"> 
                         </img>
                         ${health_bar}
-                        <h4 class="number-life-mana"> 100 </h4>
+                        <h4 class="number-life-mana"> ${this.life.getMax()} </h4>
                         `
         return life_status
     }

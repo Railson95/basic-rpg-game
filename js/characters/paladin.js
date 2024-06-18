@@ -40,6 +40,8 @@ export default class Paladin extends Character{
         this.energy += ATTRIBUTE_INCREASE;
         this.atk_dmg += this.strength * 0.5; 
         this.defense += this.dexterity * 0.5;
+        let newMaxLife = this.life.getMax() + (this.strength*0.5);
+        this.life.setMax(newMaxLife);
     }
 
     setExperience(experience) {
