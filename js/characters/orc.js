@@ -25,9 +25,9 @@ export default class Orc extends Character{
 
     showAttributes(){
         console.log("======ORC======");
-        console.log("Dmg: " + this.atk_dmg)
-        console.log("Defesa: " + this.defense)
-        console.log("Experience: " + this.experience)
+        console.log("Dmg: " + this.getAtk())
+        console.log("Defesa: " + this.getDefense())
+        console.log("Experience: " + this.getExperience())
         console.log("Max life: " + this.life.getMax())
     }
 

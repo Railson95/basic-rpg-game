@@ -13,6 +13,10 @@ export default class Character{
         this.mana = mana;
     }
 
+    getDefense(){
+        return this.defense;
+    }
+
     isDead(){
         return this.life.previousRealPoint <= 0 ? true:false;
     }
@@ -41,8 +45,8 @@ export default class Character{
         const {avatar} = this
         return `
                 <h4 class="level"> Level: ${this.level} </h4>
-                <h4 class="dmg"> Dmg: ${this.atk_dmg} </h4>
-                <h4 class="defense"> Defense: ${this.defense} </h4>
+                <h4 class="dmg"> Dmg: ${this.getAtk()} </h4>
+                <h4 class="defense"> Defense: ${this.getDefense()} </h4>
                 <h4 class="experience"> Experience: ${this.experience} </h4>
                 <img class="avatar" src="${avatar}" />
                 `
