@@ -63,11 +63,6 @@ export default class Paladin extends Character{
     }
 
     getAtk(){
-
-        if(!this.atk_dmg){ // check if undefined, 0, null, empty string, NaN, false
-            throw "The Atk dmg are wrong {" + this.constructor.name + "}";
-        }
-
         return this.atk_dmg;
     }
 

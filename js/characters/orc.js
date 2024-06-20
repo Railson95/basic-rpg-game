@@ -32,16 +32,10 @@ export default class Orc extends Character{
     }
 
     getDefense(){
-        if(!(this.level && this.defense)){
-            throw "The level and defense are wrong {" + this.constructor.name + "}";
-        }
         return this.defense;
     }
 
     getExperience(){
-        if(!(this.level && this.experience)){
-            throw "The level and experience are wrong {" + this.constructor.name + "}";
-        }
         return this.level*this.experience;
     }
 
@@ -50,11 +44,6 @@ export default class Orc extends Character{
     }
 
     getAtk(){
-
-        if(!(this.level && this.atk_dmg)){ // check if undefined, 0, null, empty string, NaN, false
-            throw "The level and Atk dmg are wrong {" + this.constructor.name + "}";
-        }
-
         return this.level*this.atk_dmg;
     }
 
