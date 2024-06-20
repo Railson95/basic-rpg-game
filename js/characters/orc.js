@@ -17,7 +17,7 @@ export default class Orc extends Character{
 
     attributeIncrease() {
         this.atk_dmg += ATTRIBUTE_INCREASE;
-        this.defense *= this.level;
+        this.defense += ATTRIBUTE_INCREASE;
         this.experience += ATTRIBUTE_INCREASE;
         let newMaxLife = this.life.getMax() + ATTRIBUTE_INCREASE;
         this.life.setMax(newMaxLife);
@@ -32,7 +32,7 @@ export default class Orc extends Character{
     }
 
     getDefense(){
-        return this.defense;
+        return this.level * this.defense;
     }
 
     getExperience(){
