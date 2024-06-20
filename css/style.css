@@ -94,3 +94,13 @@
     margin-left: 150px;
     border-radius: 50px;
 }
+
+#btn-lvlup{
+    width: 100px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    margin-left: 150px;
+    margin-top: 50px;
+    border-radius: 50px;
+}

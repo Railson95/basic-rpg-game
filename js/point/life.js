@@ -5,14 +5,17 @@ export default class Life extends Point{
         super();
     }
 
-    removeLife(atk_dmg, defense){
-
+    removeLife(atk_dmg, defense, obj){
+        this.btnAtkPress = true;
+        this.previousRealPoint = this.currentRealPoint;
+        
         if(!(atk_dmg && defense)){ // check if undefined, 0, null, empty string, NaN, false
             throw "The defense and Atk dmg are wrong {" + this.constructor.name + "}";
         }
 
-        if(this.point <= 0){
-            console.log("The character died {" + this.constructor.name + "}");
+        if(this.currentRealPoint <= 0){
+            this.currentFakePoint = 0;
+            console.log("The character died {" + obj.constructor.name + "}");
             return;
         }
 
@@ -23,12 +26,12 @@ export default class Life extends Point{
 
         atk_dmg = atk_dmg - defense;
 
-        if(atk_dmg >= this.point){
-            this.point = 0;
+        if(atk_dmg >= this.currentRealPoint){
+            this.currentRealPoint = 0;
             return;
         }
 
-        this.point -= atk_dmg;
+        this.currentRealPoint -= atk_dmg;
 
     }
 }

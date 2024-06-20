@@ -14,7 +14,7 @@ export default class Character{
     }
 
     isDead(){
-        return this.life.point <= 0 ? true:false;
+        return this.life.previousRealPoint <= 0 ? true:false;
     }
 
     getLifeStatus(){

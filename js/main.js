@@ -15,10 +15,9 @@ function run() {
     var endGame = false;
     render(paladin, orc);
     btnAtk.addEventListener("click", (e) => {
-        if(endGame){
-            return;
-        }
         e.preventDefault()
+        orc.showAttributes();
+        paladin.showAttributes();
         orc.takeDmg(paladin.getAtk());
         paladin.takeDmg(orc.getAtk());
 
@@ -26,17 +25,29 @@ function run() {
         // Só para teste do aumento de lvl
         paladin.levelIncrease();
         if(orc.isDead()){
-            orc.life.point = 100;
+            orc.life.currentRealPoint = orc.life.getMax();
+            orc.life.previousRealPoint = orc.life.currentRealPoint;
+            orc.life.currentFakePoint = 100;
+            orc.life.previousFakePoint = orc.life.currentFakePoint;
             paladin.setExperience(orc.getExperience());
             render(paladin, orc);
             return;
         }
 
         if(paladin.isDead()){
-            paladin.life.point = 100;
+            paladin.life.currentRealPoint = paladin.life.getMax();
+            paladin.life.previousRealPoint = paladin.life.currentRealPoint;
+            paladin.life.currentFakePoint = 100;
+            paladin.life.previousFakePoint = paladin.life.currentFakePoint;
             render(paladin, orc);
             return;
         }
+        render(paladin, orc);
+    })
+
+    btnLvlUp.addEventListener("click", (e) => {
+        e.preventDefault()
+        orc.pressLvlUpButton();
         render(paladin, orc);
     })
 }
@@ -51,5 +62,6 @@ const paladin = new Paladin(characterData.hero, lifeHero, manaHero);
 const orc = new Orc(characterData.monster, lifeMoster, manaMonster);
 
 const btnAtk = document.getElementById("btn-atk");
+const btnLvlUp = document.getElementById("btn-lvlup");
 run();
 

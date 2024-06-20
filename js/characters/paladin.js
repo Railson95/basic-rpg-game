@@ -44,6 +44,13 @@ export default class Paladin extends Character{
         this.life.setMax(newMaxLife);
     }
 
+    showAttributes(){
+        console.log("======Paladin======");
+        console.log("Dmg: " + this.atk_dmg)
+        console.log("Defesa: " + this.defense)
+        console.log("Max life: " + this.life.getMax())
+    }
+
     setExperience(experience) {
         if(!experience){ // check if undefined, 0, null, empty string, NaN, false
             throw "The experience is wrong {" + this.constructor.name + "}";
@@ -65,7 +72,7 @@ export default class Paladin extends Character{
     }
 
     takeDmg(dmg){
-        this.life.removeLife(dmg, this.defense);
+        this.life.removeLife(dmg, this.defense, this);
     }
 
 }
