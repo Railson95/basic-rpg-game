@@ -104,3 +104,18 @@
     margin-top: 50px;
     border-radius: 50px;
 }
+
+#monster .level, 
+#monster .dmg, 
+#monster .defense, 
+#monster .experience,
+#hero .level,
+#hero .dmg,
+#hero .defense,
+#hero .experience{
+    line-height: 0px;
+    margin-top: 0px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+}
