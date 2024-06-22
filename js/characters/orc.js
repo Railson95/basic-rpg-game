@@ -31,6 +31,14 @@ export default class Orc extends Character{
         console.log("Max life: " + this.life.getMax())
     }
 
+    setExperience(experience){
+        let experienceIsValid = experience === 0;
+        if(!experienceIsValid){ // check if undefined, 0, null, empty string, NaN, false
+            throw "The experience is wrong {" + this.constructor.name + "}";
+        }
+        this.experience = experience;
+    }
+
     getDefense(){
         return this.level * this.defense;
     }

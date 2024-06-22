@@ -14,7 +14,7 @@ export default class Life extends Point{
         }
 
         if(this.currentRealPoint <= 0){
-            this.currentFakePoint = 0;
+            this.currentFakePoint = 100;
             console.log("The character died {" + obj.constructor.name + "}");
             return;
         }
