@@ -4,6 +4,50 @@ import Orc from "./characters/orc.js";
 import Life from "./point/life.js";
 import Mana from "./point/mana.js";
 
+function run() {
+    let orcFight = getOrcFight();
+    render(paladin, orcFight);
+    checkBtnAtk(orcFight);
+    checkBtnLvlUp();
+}
+
+function checkBtnAtk(orcFight){
+    btnAtk.addEventListener("click", (e) => {
+        e.preventDefault()
+        orcFight = getOrcFight();
+
+        orcFight.takeDmg(paladin.getAtk());
+        paladin.takeDmg(orcFight.getAtk());
+
+        paladin.levelIncrease();
+
+        if(paladin.isDead()){
+            revivePaladin();
+            render(paladin, orcFight);
+            return;
+        }
+        render(paladin, orcFight);
+    })
+}
+
+function checkBtnLvlUp(){
+    btnLvlUp.addEventListener("click", (e) => {
+        e.preventDefault()
+        let orcArrayCopy = [...orcArray];
+        if(!orcArray.length){
+            throw "Orc Array is empty";
+        }
+        
+        for (const orc of orcArray) {
+            orc.pressLvlUpButton()
+        }
+
+        console.log(orcArray);
+
+        render(paladin, orcArrayCopy.shift());
+    })
+}
+
 function render(paladin, orc) {
     document.getElementById('hero').innerHTML = paladin.getCharacterHtml();
     document.getElementById('hero-status').innerHTML = paladin.getStatusHtml();
@@ -28,45 +72,19 @@ function getOrcFight(){
     return orcFight;
 }
 
-function run() {
-    var endGame = false;
-    let orcFight = getOrcFight();
-    render(paladin, orcFight);
-    btnAtk.addEventListener("click", (e) => {
-        e.preventDefault()
-        orcFight = getOrcFight();
+function createOrcList(){
+    for (let index = 0; index < 300; index++) {
+        const lifeMoster = new Life();
+        const manaMonster = new Mana();
+        let orc = new Orc(characterData.monster, lifeMoster, manaMonster);
+        orcArray.push(orc)
+    }
+}
 
-        orcFight.takeDmg(paladin.getAtk());
-        paladin.takeDmg(orcFight.getAtk());
-
-        // Só para teste do aumento de lvl
-        paladin.levelIncrease();
-
-        if(paladin.isDead()){
-            paladin.life.currentRealPoint = paladin.life.getMax();
-            paladin.life.previousRealPoint = paladin.life.currentRealPoint;
-            paladin.life.previousFakePoint = paladin.life.currentFakePoint;
-            render(paladin, orcFight);
-            return;
-        }
-        render(paladin, orcFight);
-    })
-
-    btnLvlUp.addEventListener("click", (e) => {
-        e.preventDefault()
-        let orcArrayCopy = [...orcArray];
-        if(!orcArray.length){
-            throw "Orc Array is empty";
-        }
-        
-        for (const orc of orcArray) {
-            orc.pressLvlUpButton()
-        }
-
-        console.log(orcArray);
-
-        render(paladin, orcArrayCopy.shift());
-    })
+function revivePaladin(){
+    paladin.life.currentRealPoint = paladin.life.getMax();
+    paladin.life.previousRealPoint = paladin.life.currentRealPoint;
+    paladin.life.previousFakePoint = paladin.life.currentFakePoint;
 }
 
 const lifeHero = new Life();
@@ -76,14 +94,8 @@ const paladin = new Paladin(characterData.hero, lifeHero, manaHero);
 
 const orcArray = [];
 
-for (let index = 0; index < 300; index++) {
-    const lifeMoster = new Life();
-    const manaMonster = new Mana();
-    let orc = new Orc(characterData.monster, lifeMoster, manaMonster);
-    orcArray.push(orc)
-}
-
 const btnAtk = document.getElementById("btn-atk");
 const btnLvlUp = document.getElementById("btn-lvlup");
+createOrcList();
 run();
 
