@@ -1,7 +1,7 @@
-export default class Character{
+export default class Character {
 
     level;
-    atk_dmg; 
+    atk_dmg;
     life;
     mana;
     experience;
@@ -13,16 +13,16 @@ export default class Character{
         this.mana = mana;
     }
 
-    getDefense(){
+    getDefense() {
         return this.defense;
     }
 
-    isDead(){
-        return this.life.currentRealPoint <= 0 ? true:false;
+    isDead() {
+        return this.life.currentRealPoint <= 0 ? true : false;
     }
 
-    getLifeStatus(){
-        const {img_heart} = this
+    getLifeStatus() {
+        const { img_heart } = this
         const health_bar = this.life.getBarHtml("health");
         let life_status = `<img class="heart" src="${img_heart}" alt="health img"> 
                         </img>
@@ -32,8 +32,8 @@ export default class Character{
         return life_status
     }
 
-    getManaStatus(){
-        const {img_mana} = this
+    getManaStatus() {
+        const { img_mana } = this
         const mana_bar = this.mana.getBarHtml("mana");
         let mana_status = `<img class="mana" src="${img_mana}" alt="mana img">
                             ${mana_bar}        
@@ -42,7 +42,7 @@ export default class Character{
     }
 
     getCharacterHtml() {
-        const {avatar} = this
+        const { avatar } = this
         return `
                 <h4 class="level"> Level: ${this.level} </h4>
                 <h4 class="dmg"> Dmg: ${this.getAtk()} </h4>

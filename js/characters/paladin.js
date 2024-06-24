@@ -1,7 +1,7 @@
 import Character from "./character.js";
 var MAX_LEVEL = 10;
 var ATTRIBUTE_INCREASE = 10;
-export default class Paladin extends Character{
+export default class Paladin extends Character {
 
     strength;
     dexterity;
@@ -20,14 +20,14 @@ export default class Paladin extends Character{
         this.level = 1;
     }
 
-    levelIncrease(){
+    levelIncrease() {
 
-        if(this.level === MAX_LEVEL){
+        if (this.level === MAX_LEVEL) {
             console.log("Maximum level reached {" + this.constructor.name + "}");
             return;
         }
 
-        if(this.experience >= this.nextLevel){
+        if (this.experience >= this.nextLevel) {
             this.attributeIncrease();
             this.level++;
             this.nextLevel *= 2;
@@ -38,13 +38,13 @@ export default class Paladin extends Character{
         this.strength += ATTRIBUTE_INCREASE;
         this.dexterity += ATTRIBUTE_INCREASE;
         this.energy += ATTRIBUTE_INCREASE;
-        this.atk_dmg += this.strength * 0.5; 
+        this.atk_dmg += this.strength * 0.5;
         this.defense += this.dexterity * 0.5;
-        let newMaxLife = this.life.getMax() + (this.strength*0.5);
+        let newMaxLife = this.life.getMax() + (this.strength * 0.5);
         this.life.setMax(newMaxLife);
     }
 
-    showAttributes(){
+    showAttributes() {
         console.log("======Paladin======");
         console.log("Dmg: " + this.atk_dmg)
         console.log("Defesa: " + this.defense)
@@ -52,7 +52,7 @@ export default class Paladin extends Character{
     }
 
     setExperience(experience) {
-        if(!experience){ // check if undefined, 0, null, empty string, NaN, false
+        if (!experience) { // check if undefined, 0, null, empty string, NaN, false
             throw "The experience is wrong {" + this.constructor.name + "}";
         }
         this.experience += experience;
@@ -62,11 +62,11 @@ export default class Paladin extends Character{
         return this.getLifeStatus() + this.getManaStatus();
     }
 
-    getAtk(){
+    getAtk() {
         return this.atk_dmg;
     }
 
-    takeDmg(dmg){
+    takeDmg(dmg) {
         this.life.removeLife(dmg, this.defense, this);
     }
 

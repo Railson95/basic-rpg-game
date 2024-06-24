@@ -11,7 +11,7 @@ function run() {
     checkBtnLvlUp();
 }
 
-function checkBtnAtk(orcFight){
+function checkBtnAtk(orcFight) {
     btnAtk.addEventListener("click", (e) => {
         e.preventDefault()
         orcFight = getOrcFight();
@@ -21,7 +21,7 @@ function checkBtnAtk(orcFight){
 
         paladin.levelIncrease();
 
-        if(paladin.isDead()){
+        if (paladin.isDead()) {
             revivePaladin();
             render(paladin, orcFight);
             return;
@@ -30,14 +30,14 @@ function checkBtnAtk(orcFight){
     })
 }
 
-function checkBtnLvlUp(){
+function checkBtnLvlUp() {
     btnLvlUp.addEventListener("click", (e) => {
         e.preventDefault()
         let orcArrayCopy = [...orcArray];
-        if(!orcArray.length){
+        if (!orcArray.length) {
             throw "Orc Array is empty";
         }
-        
+
         for (const orc of orcArray) {
             orc.pressLvlUpButton()
         }
@@ -55,14 +55,14 @@ function render(paladin, orc) {
     document.getElementById('monster-status').innerHTML = orc.getStatusHtml();
 }
 
-function getOrcFight(){
-    if(!orcArray.length){
+function getOrcFight() {
+    if (!orcArray.length) {
         throw "Orc Array is empty";
     }
 
     let orcFight = [...orcArray].shift();
 
-    if(!orcFight.isDead()){
+    if (!orcFight.isDead()) {
         return orcFight;
     }
 
@@ -72,7 +72,7 @@ function getOrcFight(){
     return orcFight;
 }
 
-function createOrcList(){
+function createOrcList() {
     for (let index = 0; index < 300; index++) {
         const lifeMoster = new Life();
         const manaMonster = new Mana();
@@ -81,7 +81,7 @@ function createOrcList(){
     }
 }
 
-function revivePaladin(){
+function revivePaladin() {
     paladin.life.currentRealPoint = paladin.life.getMax();
     paladin.life.previousRealPoint = paladin.life.currentRealPoint;
     paladin.life.previousFakePoint = paladin.life.currentFakePoint;
@@ -98,4 +98,3 @@ const btnAtk = document.getElementById("btn-atk");
 const btnLvlUp = document.getElementById("btn-lvlup");
 createOrcList();
 run();
-

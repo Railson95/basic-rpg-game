@@ -5,20 +5,20 @@ export default class Point {
     currentRealPoint;
     currentFakePoint;
 
-    constructor(){
+    constructor() {
         this.min = 0;
         this.max = 150;
         this.currentRealPoint = 150;
         this.currentFakePoint = 100;
     }
 
-    getMax(){
+    getMax() {
         return this.max;
     }
 
-    setMax(newMax){
+    setMax(newMax) {
 
-        if(!newMax){ // check if undefined, 0, null, empty string, NaN, false
+        if (!newMax) { // check if undefined, 0, null, empty string, NaN, false
             throw "The newMax is wrong {" + this.constructor.name + "}";
         }
 
@@ -26,7 +26,7 @@ export default class Point {
     }
 
     getBarHtml(type) {
-        if(!type){ // check if undefined, 0, null, empty string, NaN, false
+        if (!type) { // check if undefined, 0, null, empty string, NaN, false
             throw "The type is wrong {" + this.constructor.name + "}";
         }
 

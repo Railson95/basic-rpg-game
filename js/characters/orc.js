@@ -1,6 +1,6 @@
 import Character from "./character.js";
 var ATTRIBUTE_INCREASE = 10;
-export default class Orc extends Character{
+export default class Orc extends Character {
     btnLvlUpIsPress;
     constructor(data, life, mana) {
         super(data, life, mana);
@@ -10,7 +10,7 @@ export default class Orc extends Character{
         this.experience = 50;
     }
 
-    pressLvlUpButton(){
+    pressLvlUpButton() {
         this.level += 1;
         this.attributeIncrease();
     }
@@ -23,40 +23,40 @@ export default class Orc extends Character{
         this.life.setMax(newMaxLife);
     }
 
-    showAttributes(){
+    showAttributes() {
         console.log("======ORC======");
-        console.log("Dmg: " + this.getAtk())
-        console.log("Defesa: " + this.getDefense())
-        console.log("Experience: " + this.getExperience())
-        console.log("Max life: " + this.life.getMax())
+        console.log("Dmg: " + this.getAtk());
+        console.log("Defesa: " + this.getDefense());
+        console.log("Experience: " + this.getExperience());
+        console.log("Max life: " + this.life.getMax());
     }
 
-    setExperience(experience){
+    setExperience(experience) {
         let experienceIsValid = experience === 0;
-        if(!experienceIsValid){ // check if undefined, 0, null, empty string, NaN, false
+        if (!experienceIsValid) {
+            // check if undefined, 0, null, empty string, NaN, false
             throw "The experience is wrong {" + this.constructor.name + "}";
         }
         this.experience = experience;
     }
 
-    getDefense(){
+    getDefense() {
         return this.level * this.defense;
     }
 
-    getExperience(){
-        return this.level*this.experience;
+    getExperience() {
+        return this.level * this.experience;
     }
 
     getStatusHtml() {
         return this.getLifeStatus();
     }
 
-    getAtk(){
-        return this.level*this.atk_dmg;
+    getAtk() {
+        return this.level * this.atk_dmg;
     }
 
-    takeDmg(dmg){
+    takeDmg(dmg) {
         this.life.removeLife(dmg, this.getDefense(), this);
     }
-
 }
